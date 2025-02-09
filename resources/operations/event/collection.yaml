@@ -1,0 +1,21 @@
+scopes:
+    - event
+public: false
+stability: 1
+description: 'Returns all Events'
+httpMethod: GET
+httpPath: /event
+httpCode: 200
+parameters:
+    startIndex:
+        type: integer
+    count:
+        type: integer
+    search:
+        type: string
+outgoing: App\Model\EventCollection
+throws:
+    400: App\Model\Message
+    404: App\Model\Message
+    500: App\Model\Message
+action: App\Action\Event\GetAll

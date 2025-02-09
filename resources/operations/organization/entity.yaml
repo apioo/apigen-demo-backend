@@ -1,0 +1,14 @@
+scopes:
+    - organization
+public: false
+stability: 1
+description: 'Returns a Organization'
+httpMethod: GET
+httpPath: '/organization/:id'
+httpCode: 200
+outgoing: App\Model\Organization
+throws:
+    400: App\Model\Message
+    404: App\Model\Message
+    500: App\Model\Message
+action: App\Action\Organization\Get

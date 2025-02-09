@@ -1,0 +1,185 @@
+{
+    "definitions": {
+        "Message": {
+            "type": "struct",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "Collection": {
+            "type": "struct",
+            "properties": {
+                "totalResults": {
+                    "type": "integer"
+                },
+                "startIndex": {
+                    "type": "integer"
+                },
+                "itemsPerPage": {
+                    "type": "integer"
+                },
+                "entry": {
+                    "type": "array",
+                    "schema": {
+                        "type": "generic",
+                        "name": "T"
+                    }
+                }
+            }
+        },
+        "Person_Collection": {
+            "type": "struct",
+            "parent": {
+                "type": "reference",
+                "target": "Collection",
+                "template": {
+                    "T": "Person"
+                }
+            }
+        },
+        "Person": {
+            "description": "",
+            "type": "struct",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "",
+                    "type": "string"
+                },
+                "familyName": {
+                    "description": "",
+                    "type": "string"
+                },
+                "givenName": {
+                    "description": "",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "",
+                    "type": "string"
+                },
+                "birthDate": {
+                    "description": "",
+                    "type": "string",
+                    "format": "date"
+                },
+                "memberOf": {
+                    "description": "",
+                    "type": "reference",
+                    "target": "Organization"
+                },
+                "updateDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "insertDate": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Organization_Collection": {
+            "type": "struct",
+            "parent": {
+                "type": "reference",
+                "target": "Collection",
+                "template": {
+                    "T": "Organization"
+                }
+            }
+        },
+        "Organization": {
+            "description": "",
+            "type": "struct",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "",
+                    "type": "string"
+                },
+                "legalName": {
+                    "description": "",
+                    "type": "string"
+                },
+                "leiCode": {
+                    "description": "",
+                    "type": "string"
+                },
+                "updateDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "insertDate": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Event_Collection": {
+            "type": "struct",
+            "parent": {
+                "type": "reference",
+                "target": "Collection",
+                "template": {
+                    "T": "Event"
+                }
+            }
+        },
+        "Event": {
+            "description": "",
+            "type": "struct",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "",
+                    "type": "string"
+                },
+                "attendees": {
+                    "description": "",
+                    "type": "array",
+                    "schema": {
+                        "type": "reference",
+                        "target": "Person"
+                    }
+                },
+                "funder": {
+                    "description": "",
+                    "type": "reference",
+                    "target": "Organization"
+                },
+                "startDate": {
+                    "description": "",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "endDate": {
+                    "description": "",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updateDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "insertDate": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        }
+    }
+}

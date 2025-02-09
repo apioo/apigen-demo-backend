@@ -1,0 +1,15 @@
+scopes:
+    - person
+public: false
+stability: 1
+description: 'Updates a Person'
+httpMethod: PUT
+httpPath: '/person/:id'
+httpCode: 200
+incoming: App\Model\Person
+outgoing: App\Model\Message
+throws:
+    400: App\Model\Message
+    404: App\Model\Message
+    500: App\Model\Message
+action: App\Action\Person\Update

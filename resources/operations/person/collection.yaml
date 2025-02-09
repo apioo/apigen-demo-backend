@@ -1,0 +1,21 @@
+scopes:
+    - person
+public: false
+stability: 1
+description: 'Returns all Persons'
+httpMethod: GET
+httpPath: /person
+httpCode: 200
+parameters:
+    startIndex:
+        type: integer
+    count:
+        type: integer
+    search:
+        type: string
+outgoing: App\Model\PersonCollection
+throws:
+    400: App\Model\Message
+    404: App\Model\Message
+    500: App\Model\Message
+action: App\Action\Person\GetAll

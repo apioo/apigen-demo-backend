@@ -1,0 +1,15 @@
+scopes:
+    - organization
+public: false
+stability: 1
+description: 'Creates a new Organization'
+httpMethod: POST
+httpPath: /organization
+httpCode: 201
+incoming: App\Model\Organization
+outgoing: App\Model\Message
+throws:
+    400: App\Model\Message
+    404: App\Model\Message
+    500: App\Model\Message
+action: App\Action\Organization\Create

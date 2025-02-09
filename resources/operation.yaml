@@ -1,0 +1,15 @@
+"person.getAll": !include resources/operations/person/collection.yaml
+"person.get": !include resources/operations/person/entity.yaml
+"person.create": !include resources/operations/person/create.yaml
+"person.update": !include resources/operations/person/update.yaml
+"person.delete": !include resources/operations/person/delete.yaml
+"organization.getAll": !include resources/operations/organization/collection.yaml
+"organization.get": !include resources/operations/organization/entity.yaml
+"organization.create": !include resources/operations/organization/create.yaml
+"organization.update": !include resources/operations/organization/update.yaml
+"organization.delete": !include resources/operations/organization/delete.yaml
+"event.getAll": !include resources/operations/event/collection.yaml
+"event.get": !include resources/operations/event/entity.yaml
+"event.create": !include resources/operations/event/create.yaml
+"event.update": !include resources/operations/event/update.yaml
+"event.delete": !include resources/operations/event/delete.yaml

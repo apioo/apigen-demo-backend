@@ -1,0 +1,18 @@
+person.create:
+  description: ""
+person.update:
+  description: ""
+person.delete:
+  description: ""
+organization.create:
+  description: ""
+organization.update:
+  description: ""
+organization.delete:
+  description: ""
+event.create:
+  description: ""
+event.update:
+  description: ""
+event.delete:
+  description: ""

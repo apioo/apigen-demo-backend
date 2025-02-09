@@ -1,0 +1,14 @@
+scopes:
+    - person
+public: false
+stability: 1
+description: 'Returns a Person'
+httpMethod: GET
+httpPath: '/person/:id'
+httpCode: 200
+outgoing: App\Model\Person
+throws:
+    400: App\Model\Message
+    404: App\Model\Message
+    500: App\Model\Message
+action: App\Action\Person\Get

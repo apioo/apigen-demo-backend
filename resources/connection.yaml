@@ -1,0 +1,4 @@
+Stripe:
+  class: "Fusio\\Adapter\\Stripe\\Connection\\Stripe"
+  config:
+    api_key: ${env.STRIPE_API_KEY}

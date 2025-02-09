@@ -1,0 +1,21 @@
+scopes:
+    - organization
+public: false
+stability: 1
+description: 'Returns all Organizations'
+httpMethod: GET
+httpPath: /organization
+httpCode: 200
+parameters:
+    startIndex:
+        type: integer
+    count:
+        type: integer
+    search:
+        type: string
+outgoing: App\Model\OrganizationCollection
+throws:
+    400: App\Model\Message
+    404: App\Model\Message
+    500: App\Model\Message
+action: App\Action\Organization\GetAll

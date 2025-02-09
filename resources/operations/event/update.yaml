@@ -1,0 +1,15 @@
+scopes:
+    - event
+public: false
+stability: 1
+description: 'Updates a Event'
+httpMethod: PUT
+httpPath: '/event/:id'
+httpCode: 200
+incoming: App\Model\Event
+outgoing: App\Model\Message
+throws:
+    400: App\Model\Message
+    404: App\Model\Message
+    500: App\Model\Message
+action: App\Action\Event\Update

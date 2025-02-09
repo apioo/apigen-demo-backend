@@ -1,0 +1,15 @@
+Consumer:
+  scopes:
+    - authorization
+    - consumer
+    - person
+    - organization
+    - event
+Administrator:
+  scopes:
+    - authorization
+    - backend
+    - consumer
+    - person
+    - organization
+    - event

@@ -1,0 +1,38 @@
+# Additional API information which are used in various API specifications
+# The title of the application
+info_title: "Demo"
+# A short description of the application. CommonMark syntax MAY be used for rich 
+# text representation
+info_description: "APIgen demo project"
+# The URL pointing to the contact information. MUST be in the format of a URL
+info_contact_url: "https://apigen.app"
+
+# Subject of the password reset mail
+mail_pw_reset_subject: "Demo password reset"
+# Body of the password reset mail
+mail_pw_reset_body: "Hello {name},
+
+you have requested to reset your password.
+To set a new password please visit the following link:
+https://api.demo.apigen.app/password/reset/{token}
+
+Please ignore this email if you have not requested a password reset.
+
+"
+
+# Subject of the activation mail
+mail_register_subject: "Demo registration"
+# Body of the activation mail
+mail_register_body: "Hello {name},
+
+you have successful registered at SSH API.
+To activate you account please visit the following url:
+
+https://api.demo.apigen.app/register/activate/{token}
+
+"
+
+payment_stripe_secret: "${env.STRIPE_WEBHOOK_KEY}"
+
+recaptcha_key: "${env.RECAPTCHA_KEY}"
+recaptcha_secret: "${env.RECAPTCHA_SECRET}"
