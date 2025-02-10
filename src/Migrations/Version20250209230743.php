@@ -128,7 +128,7 @@ class Version20250209230743 extends AbstractMigration
         }
 
         $rows = [
-            ['user_id' => 2, 'status' => 1, 'display_id' => Uuid::uuid4()->toString(), 'name' => 'Google I/O', 'funder_id' => 1, 'start_date' => date('Y-m-d H:i:s', strtotime('today')), 'end_date' => date('Y-m-d H:i:s', strtotime('tomorrow')), 'update_date' => date('Y-m-d H:i:s'), 'insert_date' => date('Y-m-d H:i:s')],
+            ['user_id' => 2, 'status' => 1, 'display_id' => Uuid::uuid4()->toString(), 'name' => 'Google I/O', 'funder_id' => 1, 'start_date' => date('Y-m-d H:i:s', (int) strtotime('today')), 'end_date' => date('Y-m-d H:i:s', (int) strtotime('tomorrow')), 'update_date' => date('Y-m-d H:i:s'), 'insert_date' => date('Y-m-d H:i:s')],
         ];
         foreach ($rows as $row) {
             $this->connection->insert('app_event', $row);
