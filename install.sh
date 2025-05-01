@@ -10,11 +10,12 @@ read EMAIL
 echo "Input your password"
 read -s PASSWORD
 
-composer install --no-dev --optimize-autoloader --classmap-authoritative
+composer install --no-dev
 php bin/fusio migrate --no-interaction
 php bin/fusio adduser --role=1 --username="$USERNAME" --email="$EMAIL" --password="$PASSWORD"
 php bin/fusio generate:table
 php bin/fusio generate:model
+composer dump-autoload --optimize --classmap-authoritative
 php bin/fusio login --username="$USERNAME" --password="$PASSWORD"
 php bin/fusio deploy
 php bin/fusio generate:sdk --raw --output="../frontend/src/app/generated"

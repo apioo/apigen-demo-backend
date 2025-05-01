@@ -6,11 +6,12 @@ $USERNAME = Read-Host -Prompt 'Input your username'
 $EMAIL = Read-Host -Prompt 'Input your email'
 $PASSWORD = Read-Host -Prompt 'Input your password'
 
-composer install --no-dev --optimize-autoloader --classmap-authoritative
+composer install --no-dev
 php bin/fusio migrate --no-interaction
 php bin/fusio adduser --role=1 --username="$USERNAME" --email="$EMAIL" --password="$PASSWORD"
 php bin/fusio generate:table
 php bin/fusio generate:model
+composer dump-autoload --optimize --classmap-authoritative
 php bin/fusio login --username="$USERNAME" --password="$PASSWORD"
 php bin/fusio deploy
 php bin/fusio generate:sdk --raw --output="../frontend/src/app/generated"
