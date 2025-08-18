@@ -1,14 +1,14 @@
 # Additional API information which are used in various API specifications
 # The title of the application
-info_title: "demo"
+info_title: "Demo"
 # A short description of the application. CommonMark syntax MAY be used for rich 
 # text representation
-info_description: "This is an APIgen demo API"
+info_description: "APIgen demo project"
 # The URL pointing to the contact information. MUST be in the format of a URL
 info_contact_url: "https://apigen.app"
 
 # Subject of the password reset mail
-mail_pw_reset_subject: "demo password reset"
+mail_pw_reset_subject: "Demo password reset"
 # Body of the password reset mail
 mail_pw_reset_body: "Hello {name},
 
@@ -21,7 +21,7 @@ Please ignore this email if you have not requested a password reset.
 "
 
 # Subject of the activation mail
-mail_register_subject: "demo registration"
+mail_register_subject: "Demo registration"
 # Body of the activation mail
 mail_register_body: "Hello {name},
 

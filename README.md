@@ -1,7 +1,7 @@
 
-# demo
+# Demo
 
-This is an APIgen demo API
+APIgen demo project
 
 ## Installation
 
