@@ -15,7 +15,7 @@ class Person extends PersonTable
 
     public const STATUS_DELETED = 0;
 
-    public function findByIdAndUser(string $id, int $userId) : ?PersonRow
+    public function findByIdAndUser(string $id, int $userId): ?PersonRow
     {
         $condition = Condition::withAnd();
         $condition->equals(Generated\PersonTable::COLUMN_USER_ID, $userId);
@@ -25,7 +25,10 @@ class Person extends PersonTable
         return $this->findOneBy($condition);
     }
 
-    public function findAllAttendees(int $id) : array
+    /**
+     * @return list<mixed>
+     */
+    public function findAllAttendees(int $id): array
     {
         $query = 'SELECT app_person.*
                     FROM app_event_attendees

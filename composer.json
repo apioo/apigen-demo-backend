@@ -1,11 +1,22 @@
 {
+  "config": {
+    "platform": {
+      "php": "8.4"
+    },
+    "allow-plugins": {
+      "php-http/discovery": false
+    }
+  },
   "require": {
-    "php": ">=8.2",
+    "php": ">=8.4",
     "fusio/impl": "^8.0",
     "fusio/adapter-stripe": "^6.0",
-    "symfony/aha-send-mailer": "^7.0",
-    "symfony/sendgrid-mailer": "^7.0",
-    "symfony/http-client": "^7.0"
+    "symfony/aha-send-mailer": "^8.0",
+    "symfony/sendgrid-mailer": "^8.0",
+    "symfony/http-client": "^8.0"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^2.2"
   },
   "autoload": {
     "psr-4": {

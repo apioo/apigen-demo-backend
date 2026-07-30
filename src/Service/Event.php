@@ -16,7 +16,7 @@ readonly class Event
     {
     }
 
-    public function create(Model\Event $model, UserContext $context) : string
+    public function create(Model\Event $model, UserContext $context): string
     {
         try {
             $this->eventTable->beginTransaction();
@@ -82,7 +82,7 @@ readonly class Event
         return $id;
     }
 
-    public function update(string $id, Model\Event $model, UserContext $context) : string
+    public function update(string $id, Model\Event $model, UserContext $context): string
     {
         $row = $this->eventTable->findOneByDisplayId($id);
         if (!$row instanceof Table\Generated\EventRow) {
@@ -143,7 +143,7 @@ readonly class Event
         return $row->getDisplayId();
     }
 
-    public function delete(string $id, UserContext $context) : string
+    public function delete(string $id, UserContext $context): string
     {
         $row = $this->eventTable->findOneByDisplayId($id);
         if (!$row instanceof Table\Generated\EventRow) {

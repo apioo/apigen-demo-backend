@@ -16,7 +16,7 @@ readonly class Person
     {
     }
 
-    public function create(Model\Person $model, UserContext $context) : string
+    public function create(Model\Person $model, UserContext $context): string
     {
         try {
             $this->personTable->beginTransaction();
@@ -79,7 +79,7 @@ readonly class Person
         return $id;
     }
 
-    public function update(string $id, Model\Person $model, UserContext $context) : string
+    public function update(string $id, Model\Person $model, UserContext $context): string
     {
         $row = $this->personTable->findOneByDisplayId($id);
         if (!$row instanceof Table\Generated\PersonRow) {
@@ -137,7 +137,7 @@ readonly class Person
         return $row->getDisplayId();
     }
 
-    public function delete(string $id, UserContext $context) : string
+    public function delete(string $id, UserContext $context): string
     {
         $row = $this->personTable->findOneByDisplayId($id);
         if (!$row instanceof Table\Generated\PersonRow) {

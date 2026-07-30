@@ -46,35 +46,35 @@
             }
         },
         "Person": {
-            "description": "",
+            "description": "Represents an individual contact or event attendee.",
             "type": "struct",
             "properties": {
                 "id": {
                     "type": "string"
                 },
                 "name": {
-                    "description": "",
+                    "description": "Full display name",
                     "type": "string"
                 },
                 "familyName": {
-                    "description": "",
+                    "description": "Family or last name",
                     "type": "string"
                 },
                 "givenName": {
-                    "description": "",
+                    "description": "Given or first name",
                     "type": "string"
                 },
                 "email": {
-                    "description": "",
+                    "description": "Primary electronic mail address",
                     "type": "string"
                 },
                 "birthDate": {
-                    "description": "",
+                    "description": "Date of birth",
                     "type": "string",
                     "format": "date"
                 },
                 "memberOf": {
-                    "description": "",
+                    "description": "Associated organization entity",
                     "type": "reference",
                     "target": "Organization"
                 },
@@ -99,22 +99,22 @@
             }
         },
         "Organization": {
-            "description": "",
+            "description": "Represents a business entity or corporate body.",
             "type": "struct",
             "properties": {
                 "id": {
                     "type": "string"
                 },
                 "name": {
-                    "description": "",
+                    "description": "Organization trade name",
                     "type": "string"
                 },
                 "legalName": {
-                    "description": "",
+                    "description": "Official legal name",
                     "type": "string"
                 },
                 "leiCode": {
-                    "description": "",
+                    "description": "Legal Entity Identifier code",
                     "type": "string"
                 },
                 "updateDate": {
@@ -138,18 +138,18 @@
             }
         },
         "Event": {
-            "description": "",
+            "description": "Represents a scheduled gathering or conference.",
             "type": "struct",
             "properties": {
                 "id": {
                     "type": "string"
                 },
                 "name": {
-                    "description": "",
+                    "description": "Event title",
                     "type": "string"
                 },
                 "attendees": {
-                    "description": "",
+                    "description": "List of confirmed person attendees",
                     "type": "array",
                     "schema": {
                         "type": "reference",
@@ -157,17 +157,17 @@
                     }
                 },
                 "funder": {
-                    "description": "",
+                    "description": "Sponsoring organization",
                     "type": "reference",
                     "target": "Organization"
                 },
                 "startDate": {
-                    "description": "",
+                    "description": "Scheduled start date and time",
                     "type": "string",
                     "format": "date-time"
                 },
                 "endDate": {
-                    "description": "",
+                    "description": "Scheduled end date and time",
                     "type": "string",
                     "format": "date-time"
                 },

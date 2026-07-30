@@ -15,7 +15,7 @@ class Organization extends OrganizationTable
 
     public const STATUS_DELETED = 0;
 
-    public function findByIdAndUser(string $id, int $userId) : ?OrganizationRow
+    public function findByIdAndUser(string $id, int $userId): ?OrganizationRow
     {
         $condition = Condition::withAnd();
         $condition->equals(Generated\OrganizationTable::COLUMN_USER_ID, $userId);

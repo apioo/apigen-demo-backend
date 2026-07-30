@@ -8,9 +8,9 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  *
  */
-class Version20250818201950 extends AbstractMigration
+class Version20260730135642 extends AbstractMigration
 {
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         $personTable = $schema->createTable('app_person');
         $personTable->addColumn('id', 'integer', ['autoincrement' => true]);
@@ -91,7 +91,7 @@ class Version20250818201950 extends AbstractMigration
         $eventAttendeesTable->addForeignKeyConstraint($schema->getTable('app_person'), ['person_id'], ['id']);
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         $schema->dropTable('app_person');
         $schema->dropTable('app_organization');

@@ -3,26 +3,23 @@
 namespace App\Action\Person;
 
 use App\View\Person as View;
-use Fusio\Engine\Action\RuntimeInterface;
-use Fusio\Engine\ActionAbstract;
+use Fusio\Engine\ActionInterface;
 use Fusio\Engine\ContextInterface;
 use Fusio\Engine\ParametersInterface;
 use Fusio\Engine\RequestInterface;
+use Fusio\Impl\Backend\Filter\QueryFilter;
 use Fusio\Impl\Service\System\ContextFactory;
 
-class GetAll extends ActionAbstract
+readonly class GetAll implements ActionInterface
 {
-    public function __construct(RuntimeInterface $runtime, private View $view, private ContextFactory $contextFactory)
+    public function __construct(private View $view, private ContextFactory $contextFactory)
     {
-        parent::__construct($runtime);
     }
 
-    public function handle(RequestInterface $request, ParametersInterface $configuration, ContextInterface $context) : mixed
+    public function handle(RequestInterface $request, ParametersInterface $configuration, ContextInterface $context): mixed
     {
         return $this->view->getCollection(
-            (int) $request->get('startIndex'),
-            (int) $request->get('count'),
-            $request->get('search'),
+            QueryFilter::from($request),
             $this->contextFactory->newActionContext($context)
         );
     }

@@ -15,7 +15,7 @@ class Event extends EventTable
 
     public const STATUS_DELETED = 0;
 
-    public function findByIdAndUser(string $id, int $userId) : ?EventRow
+    public function findByIdAndUser(string $id, int $userId): ?EventRow
     {
         $condition = Condition::withAnd();
         $condition->equals(Generated\EventTable::COLUMN_USER_ID, $userId);

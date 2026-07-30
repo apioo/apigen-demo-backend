@@ -16,7 +16,7 @@ readonly class Organization
     {
     }
 
-    public function create(Model\Organization $model, UserContext $context) : string
+    public function create(Model\Organization $model, UserContext $context): string
     {
         try {
             $this->organizationTable->beginTransaction();
@@ -63,7 +63,7 @@ readonly class Organization
         return $id;
     }
 
-    public function update(string $id, Model\Organization $model, UserContext $context) : string
+    public function update(string $id, Model\Organization $model, UserContext $context): string
     {
         $row = $this->organizationTable->findOneByDisplayId($id);
         if (!$row instanceof Table\Generated\OrganizationRow) {
@@ -105,7 +105,7 @@ readonly class Organization
         return $row->getDisplayId();
     }
 
-    public function delete(string $id, UserContext $context) : string
+    public function delete(string $id, UserContext $context): string
     {
         $row = $this->organizationTable->findOneByDisplayId($id);
         if (!$row instanceof Table\Generated\OrganizationRow) {

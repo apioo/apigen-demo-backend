@@ -4,9 +4,9 @@ namespace App\View;
 
 use App\Table;
 use Fusio\Impl\Authorization\UserContext;
+use Fusio\Impl\Backend\Filter\QueryFilter;
 use PSX\Nested\Builder;
 use PSX\Nested\Reference;
-use PSX\Sql\Condition;
 use PSX\Sql\OrderBy;
 use PSX\Sql\ViewAbstract;
 
@@ -15,25 +15,15 @@ use PSX\Sql\ViewAbstract;
  */
 class Person extends ViewAbstract
 {
-    public function getCollection(int $startIndex, int $count, ?string $search, UserContext $context) : mixed
+    public function getCollection(QueryFilter $filter, UserContext $context): mixed
     {
-        if (empty($startIndex) || $startIndex < 0) {
-           $startIndex = 0;
-        }
+        $startIndex = $filter->getStartIndex();
+        $count = $filter->getCount();
+        $sortBy = Table\Generated\PersonColumn::tryFrom($filter->getSortBy(Table\Generated\PersonTable::COLUMN_ID) ?? '');
+        $sortOrder = $filter->getSortOrder(OrderBy::DESC);
 
-        if (empty($count) || $count < 1 || $count > 1024) {
-           $count = 16;
-        }
-
-        $sortBy = Table\Generated\PersonColumn::ID;
-        $sortOrder = OrderBy::DESC;
-
-        $condition = Condition::withAnd();
+        $condition = $filter->getCondition($this->getTable(Table\Person::class), [QueryFilter::COLUMN_SEARCH => Table\Generated\PersonColumn::NAME]);
         $condition->equals(Table\Generated\PersonTable::COLUMN_STATUS, Table\Person::STATUS_ACTIVE);
-
-        if (!empty($search)) {
-           $condition->like(Table\Generated\PersonTable::COLUMN_NAME, '%' . $search . '%');
-        }
 
         $builder = new Builder($this->connection);
 
@@ -64,7 +54,7 @@ class Person extends ViewAbstract
         return $builder->build($definition);
     }
 
-    public function getEntity(string $id, UserContext $context) : mixed
+    public function getEntity(string $id, UserContext $context): mixed
     {
         $builder = new Builder($this->connection);
 
